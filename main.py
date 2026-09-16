@@ -11,11 +11,11 @@ from app.ml.recommender import recommender_engine
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("\n[STARTUP] Dataset aur vectors load ho rahe hain...")
+    print("\n[STARTUP] loading dataset and vectors...")
     recommender_engine.load_and_prepare(limit=50000)
-    print("[STARTUP] Music Engine ready ho chuka hai!\n")
+    print("[STARTUP] Music Engine Ready!\n")
     yield
-    print("\n[SHUTDOWN] Server band ho raha hai...")
+    print("\n[SHUTDOWN] closing resources...")
 
 
 # FASTAPI initialization
